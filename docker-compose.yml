@@ -38,3 +38,12 @@ services:
       WORDPRESS_DB_PASSWORD: hetic
     volumes:
       - ./wordpress:/var/www/html
+
+  web: 
+    build: .
+    command: python app.py
+    ports:
+      - "81:80"
+    restart: always 
+    volume: 
+      - ./static/pwa/icon:app/static/pwa/icon
